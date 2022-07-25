@@ -63,14 +63,25 @@ namespace HomeWork6
 
         public void CreateNote()
         {
-            Console.WriteLine("Введите имя файла - ");
-            string fileName = Console.ReadLine();
+            string fileName = String.Empty;
+            if (!File.Exists($"{fileName}.csv"))
+            {
+                Console.WriteLine("Введите имя файла - ");
+                fileName = Console.ReadLine();
+            }
+            else ;
+
+            ;
             using (StreamWriter wr = new StreamWriter($"{fileName}.csv", true, Encoding.Unicode))
             {
                 Random r = new Random();
                 ID = r.Next(1000);
+                string id = Convert.ToString(ID);
+                id += "#";
 
                 DateTime = DateTime.Now;
+                string dateTime = Convert.ToString(DateTime);
+                dateTime += "#";
 
                 Console.WriteLine("Введите имя сотрудника - ");
                 Name = Console.ReadLine();
@@ -90,7 +101,6 @@ namespace HomeWork6
 
             }
         }
-
         #endregion
     }
     
